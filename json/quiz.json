@@ -1,15 +1,29 @@
 {
     "parts": [
         {
-            "id": 1,
+            "id": 0,
             "title": "part1"
         },
         {
-            "id": 2,
+            "id": 1,
             "title": "part2"
         }
     ],
     "quiz": [
+        {
+            "partId": 0,
+            "type": "mc",
+            "question": "testQuestion",
+            "answers": ["answer1","answer2","answer3"],
+            "rightAnswer": 0
+        },
+        {
+            "partId": 0,
+            "type": "cq",
+            "description": "test description",
+            "base64code": "PHByZT4KPHZhcj5qb2JzOjwvdmFyPgogICAgPHZhcj5jb21waWxlOjwvdmFyPgogICAgICAgIDx2YXI+cnVucy1vbjo8L3Zhcj48aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IndyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
+            "rightFillers": ["a","ab","abc"]
+        },
         {
             "partId": 1,
             "type": "mc",
@@ -21,14 +35,18 @@
             "partId": 1,
             "type": "cq",
             "description": "test description",
-            "base64code": "PHZhcj5qb2JzOjwvdmFyPg0KICAgIDx2YXI+Y29tcGlsZTo8L3Zhcj4NCiAgICAgICAgPHZhcj5ydW5zLW9uOjwvdmFyPjxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0id3JpdGUgeW91ciBhbnN3ZXIiPg==",
+            "base64code": "PHByZT4KPHZhcj5qb2JzOjwvdmFyPgogICAgPHZhcj5jb21waWxlOjwvdmFyPgogICAgICAgIDx2YXI+cnVucy1vbjo8L3Zhcj48aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IndyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
             "rightFillers": ["a","ab","abc"]
         }
     ],
     "exercise": [
         {
-            "partId": 1,
+            "partId": 0,
             "base64description": "dGVzdA=="
+        },
+        {
+            "partId": 1,
+            "base64description": "dGVzdCBleGVyY2lzZQ=="
         }
     ]
 }
