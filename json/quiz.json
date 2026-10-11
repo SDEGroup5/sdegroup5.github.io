@@ -1,0 +1,34 @@
+{
+    "parts": [
+        {
+            "id": 1,
+            "title": "part1"
+        },
+        {
+            "id": 2,
+            "title": "part2"
+        }
+    ],
+    "quiz": [
+        {
+            "partId": 1,
+            "type": "mc",
+            "question": "testQuestion",
+            "answers": ["answer1","answer2","answer3"],
+            "rightAnswer": 0
+        },
+        {
+            "partId": 1,
+            "type": "cq",
+            "description": "test description",
+            "base64code": "PHZhcj5qb2JzOjwvdmFyPg0KICAgIDx2YXI+Y29tcGlsZTo8L3Zhcj4NCiAgICAgICAgPHZhcj5ydW5zLW9uOjwvdmFyPjxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0id3JpdGUgeW91ciBhbnN3ZXIiPg==",
+            "rightFillers": ["a","ab","abc"]
+        }
+    ],
+    "exercise": [
+        {
+            "partId": 1,
+            "base64description": "dGVzdA=="
+        }
+    ]
+}
