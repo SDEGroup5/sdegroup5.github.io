@@ -3,7 +3,7 @@
 // cq = complete question (code must be html formatted in base64)
 
 let jsonFile: any = null;
-const jsonFileUrl: string = "./../json/quiz.json";
+const jsonFileUrl: string = "./json/quiz.json";
 const partsArray: part[] = new Array();
 
 const nextButton = '<button id="nextButton" onclick="nextButtonPressed()">-></button>';

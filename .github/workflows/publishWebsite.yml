@@ -1,0 +1,68 @@
+name: Publish Website
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build Website Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create destination folders
+        run: |
+          mkdir files
+          mkdir files/html
+          mkdir files/css
+          mkdir files/json
+          mkdir files/ts
+      - name: Copy HTML files
+        run: cp -a ./html ./files/ && mv ./files/html/index.html ./files/
+      - name: Copy CSS files
+        run: cp -a ./css ./files/
+      - name: Copy JSON files
+        run: cp -a ./json ./files/
+      - name: Copy ts files
+        run: cp -a ./ts ./files/
+      - name: Cache initialization
+        id: node-install-cache
+        uses: actions/cache@v6
+        with:
+          path: ./nodejs
+          key: ${{runner.os}}-node-24.21.0
+      - name: Nodejs download
+        if: steps.node-install-cache.outputs.cache-hit != 'true'
+        run: |
+          wget https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-x64.tar.xz
+          mkdir nodejs
+          tar -xf ./node-v24.21.0-linux-x64.tar.xz -C ./nodejs --strip-components=1
+      - name: Compile typescript files
+        run: |
+          ./nodejs/bin/npm install typescript --save-dev
+          for tsfile in ./ts/*.ts
+          do
+          ./nodejs/bin/npx tsc $tsfile --outDir ./files/ts/
+          done
+      - name: Remove typescript files
+        run: rm -f ./files/ts/*.ts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: files
+          path: "./files"
+      - name: Upload Website Artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: "./files"
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
