@@ -46,11 +46,6 @@ jobs:
           done
       - name: Remove typescript files
         run: rm -f ./files/ts/*.ts
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: files
-          path: "./files"
       - name: Upload Website Artifact
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
