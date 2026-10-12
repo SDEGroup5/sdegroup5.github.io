@@ -13,16 +13,16 @@
         {
             "partId": 0,
             "type": "mc",
-            "question": "testQuestion",
-            "answers": ["answer1","answer2","answer3"],
-            "rightAnswer": 0
+            "question": "Why is it useful to use GitHub actions?",
+            "answers": ["Yes.","Not the right answer","For Continuous Development","Generic answer but very long to test the css. Like really really long answer"],
+            "rightAnswer": 2
         },
         {
             "partId": 0,
             "type": "cq",
-            "description": "test description",
-            "base64code": "PHByZT4KPHZhcj5qb2JzOjwvdmFyPgogICAgPHZhcj5jb21waWxlOjwvdmFyPgogICAgICAgIDx2YXI+cnVucy1vbjo8L3Zhcj48aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IndyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
-            "rightFillers": ["a","ab","abc"]
+            "description": "Fill the following gaps",
+            "base64code": "PHByZT4KPHZhcj5vbjo8L3Zhcj4KICA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4KICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIjxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPm5hbWU6PC92YXI+IEJ1aWxkIFdlYnNpdGUgRmlsZXMKICAgIDx2YXI+cnVucy1vbjo8L3Zhcj48aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
+            "rightFillers": ["push:","main","ubuntu-latest"]
         },
         {
             "partId": 1,

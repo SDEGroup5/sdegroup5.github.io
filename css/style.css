@@ -1,0 +1,111 @@
+:root {
+    --footer-bg-color: none;
+    --footer-txt-color: black;
+    --main-color: #A9E5BB;
+    --secondary-color: #FEFEE3;
+    --nav-buttons-bg-color: black;
+    --submit-button-bg-color: #006e1c;
+    --submit-button-txt-color: white;
+    --var-color: #7c0d0d;
+}
+
+html {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--main-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    width: 30%;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+main:has(pre) {
+    width: 50%;
+}
+
+var {
+    color: var(--var-color)
+}
+
+div.radioDiv {
+    min-width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    text-align: left;
+    margin: 0.4em;
+}
+
+div#navMenu {
+    margin-top: auto;
+}
+
+button#submitButton {
+    margin-top: auto;
+}
+
+pre {
+    text-align: left;
+}
+
+button#previousButton {
+    background-color: var(--nav-buttons-bg-color);
+    background-image: url("../assets/icons/mdi--arrow-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+	border: none;
+	padding: 1em;
+	cursor: pointer;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+button#nextButton {
+    background-color: var(--nav-buttons-bg-color);
+    background-image: url("../assets/icons/mdi--arrow-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+	border: none;
+	padding: 1em;
+	cursor: pointer;
+    border-radius: 1em;
+    margin: 1em;
+}
+
+button#submitButton {
+    background-color: var(--submit-button-bg-color);
+    color: var(--submit-button-txt-color);
+	border: none;
+	padding: 1em;
+	cursor: pointer;
+    border-radius: 0.5em;
+    margin: 1em;
+}
+
+footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-txt-color);
+    text-align: center;
+    min-width: 100vw;
+}

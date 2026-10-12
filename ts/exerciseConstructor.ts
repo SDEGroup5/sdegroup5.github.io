@@ -3,11 +3,12 @@
 // cq = complete question (code must be html formatted in base64)
 
 let jsonFile: any = null;
-const jsonFileUrl: string = "./json/quiz.json";
+const jsonFileUrl: string = "../json/quiz.json";
 const partsArray: part[] = new Array();
 
-const nextButton = '<button id="nextButton" onclick="nextButtonPressed()">-></button>';
-const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"><-</button>';
+const nextButton = '<button id="nextButton" onclick="nextButtonPressed()"></button>';
+const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"></button>';
+const submitButton = '<button id="submitButton" onClick="checkAnswer()">Submit</button>';
 
 const enum choiceType {
     mc = "mc",
@@ -168,7 +169,7 @@ function formatPage() {
     let content = "";
 
     if (cp.index == -1 && cp.partId == -1) {
-        content += 'START ' + nextButton;
+        content += '<p>Welcome to the 5th lab of the Service Design and Engineering course @UniTn</p><p> Press the button below to start. Please wait instruction before proceeding across the various parts</p> ' + '<div id = "navMenu">' + nextButton + '</div>';
     } else if (cp.index > -1 && cp.partId > -1 && cp.partId < partsArray.length) {
         let part = partsArray[cp.partId];
         content += `<h2>Part ${cp.partId + 1}</h2>`;
@@ -179,11 +180,10 @@ function formatPage() {
                     return;
                 }
                 let mcq = part.mcArray[cp.index];
-                content += `${mcq.question} <br>`;
+                content += `<strong> ${mcq.question} </strong>`;
                 for (const q of mcq.answers) {
-                    content += `<input type="radio" name="answer" value="${q}" id="${q}"> <label for="${q}">${q}</label><br>`;
+                    content += `<div class="radioDiv"><input type="radio" name="answer" value="${q}" id="${q}"> <label for="${q}" id="${q}label">${q}</label></div>`;
                 }
-                content += '<button type="submit">Enter</button>';
                 break;
             case choiceType.cq:
                 if (part.cqArray.length == 0) {
@@ -191,7 +191,7 @@ function formatPage() {
                     return;
                 }
                 let cqq = part.cqArray[cp.index];
-                content += `${cqq.description} <br> ${atob(cqq.base64code)} <br> <button type="submit">Enter</button>`;
+                content += `<strong>${cqq.description}</strong>${atob(cqq.base64code)} <br>`;
                 break;
             case choiceType.ex:
                 if (part.exerciseArray.length == 0) {
@@ -199,20 +199,95 @@ function formatPage() {
                     return;
                 }
                 let exq = part.exerciseArray[cp.index];
-                content += `${atob(exq.base64description)} <br> <button type="submit">Enter</button>`;
+                content += `${atob(exq.base64description)} <br>`;
                 break;
             default:
                 break;
         }
-        content += `<br> ${previousButton} ${nextButton}`;
+        if (cp.type != choiceType.ex) {
+            content += `${submitButton}`;
+        }
+        content += `<div id="navMenu">${previousButton} ${nextButton}</div>`;
     } else {
-        cp.index = partsArray[partsArray.length - 1].exerciseArray.length;
-        cp.partId = partsArray.length - 1;
-        cp.type = choiceType.ex;
+        cp.index = -1;
+        cp.partId = -1;
+        cp.type = choiceType.mc;
         savePosition(cp);
-        content += 'FINISH ' + previousButton;
+        content += 'Thank you for following the lab';
     }
     main.innerHTML = main.innerHTML.replace("{{CONTENT}}", content);
+
+}
+
+function checkAnswer() {
+    const cp = loadPosition();
+    const submitBtn = document.getElementById("submitButton");
+    let par = document.getElementById("result");
+
+    if (par) {
+        par.remove();
+    }
+
+    par = document.createElement("p");
+    par.setAttribute("id", "result");
+
+    switch (cp.type) {
+        case choiceType.mc:
+            {
+                const rightAnswer = partsArray[cp.partId].mcArray[cp.index].rightAnswer;
+                const possibleAnswers = partsArray[cp.partId].mcArray[cp.index].answers;
+                let index = 0;
+
+                for (const option of possibleAnswers) {
+                    let choice = document.getElementById(option);
+                    if (!choice || !("checked" in choice) || !choice.checked) {
+                        index += 1;
+                        continue;
+                    }
+                    if (index == rightAnswer) {
+                        par.innerText = "OK";
+
+                        break;
+                    } else {
+                        par.innerText = "WRONG";
+                        break;
+                    }
+                }
+            }
+            break;
+        case choiceType.cq:
+            {
+                const fillers = document.querySelectorAll('input[type="text"]');
+                const rightFillers = partsArray[cp.partId].cqArray[cp.index].rightFillers;
+                let index = 0;
+
+                for (const f of fillers) {
+                    if (!("value" in f)) {
+                        continue;
+                    }
+
+                    if (f.value != rightFillers[index]) {
+                        par.innerText = "WRONG";
+                        break;
+                    }
+
+                    index += 1;
+                }
+
+                if (par.innerText == "") {
+                    par.innerText = "OK";
+                }
+            }
+            break;
+        case choiceType.ex:
+            break;
+        default:
+            break;
+    }
+
+    if (submitBtn) {
+        submitBtn.after(par);
+    }
 
 }
 

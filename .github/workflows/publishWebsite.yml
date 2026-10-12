@@ -17,6 +17,7 @@ jobs:
           mkdir files/css
           mkdir files/json
           mkdir files/ts
+          mkdir files/assets
       - name: Copy HTML files
         run: cp -a ./html ./files/ && mv ./files/html/index.html ./files/
       - name: Copy CSS files
@@ -25,6 +26,8 @@ jobs:
         run: cp -a ./json ./files/
       - name: Copy ts files
         run: cp -a ./ts ./files/
+      - name: Copy assets
+        run: cp -a ./assets ./files/
       - name: Cache initialization
         id: node-install-cache
         uses: actions/cache@v6
