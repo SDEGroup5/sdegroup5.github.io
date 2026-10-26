@@ -325,7 +325,7 @@ async function formatPage() {
             return;
         }
 
-        //await retrieveDocs();
+        await retrieveDocs();
 
         for (const doc of docsList) {
             const item = document.createElement("li");
@@ -396,7 +396,34 @@ async function formatPage() {
         cp.partId = -1;
         cp.type = choiceType.mc;
         savePosition(cp);
-        content += 'Thank you for following the lab';
+        content += `
+        <p>Thank you for your attention!</p>
+        <br>
+        <div class="teamUserDiv" id="teamUserDiv0">
+                <a href="https://github.com/LorenzoCaraffini" class="teamUserLink">
+                    <img src="https://avatars.githubusercontent.com/u/161510632?s=70&v=4">
+                    <p class="username">LorenzoCaraffini</p>
+                </a>
+                <a href="https://github.com/FilizZPalm" class="teamUserLink">
+                    <img src="https://avatars.githubusercontent.com/u/150455831?s=70&v=4">
+                    <p class="username">FilizZPalm</p>
+                </a>
+                <a href="https://github.com/ozneroL541" class="teamUserLink">
+                    <img src="https://avatars.githubusercontent.com/u/117105676?s=70&v=4">
+                    <p class="username">ozneroL541</p>
+                </a>
+        </div>
+        <div class="teamUserDiv" id="teamUserDiv1">
+                <a href="https://github.com/FireStoat3" class="teamUserLink">
+                    <img src="https://avatars.githubusercontent.com/u/161834755?s=64&v=4">
+                    <p class="username">FireStoat3</p>
+                </a>
+                <a href="https://github.com/Oziator" class="teamUserLink">
+                    <img src="https://avatars.githubusercontent.com/u/89981093?s=70&v=4">
+                    <p class="username">Oziator</p>
+                </a>
+        </div>
+        `;
     }
     ct.innerHTML = ct.innerHTML.replace("{{CONTENT}}", content);
 

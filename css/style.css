@@ -1,20 +1,30 @@
 :root {
     --footer-bg-color: none;
-    --footer-txt-color: black;
-    --main-color: #A9E5BB;
-    --secondary-color: #FEFEE3;
+    --footer-txt-color: white;
+    --main-gradient-end: rgba(0, 0, 0, 1);
+    --main-gradient-start: rgb(48, 1, 32);
+    --main-txt-color: white;
+    --secondary-color: #4e4e8854;
     --nav-buttons-bg-color: black;
-    --submit-button-bg-color: #006e1c;
+    --submit-button-bg-color: #199137;
     --submit-button-txt-color: white;
-    --current-lab-item-color: #7c0d0d;
-    --var-color: #7c0d0d;
+    --current-lab-item-color: #ffb109;
+    --var-color: #ffb109;
 }
 
 html {
     overflow-x: hidden;
     font-family: Arial, sans-serif;
-    background-color: var(--main-color);
+    background: linear-gradient(0deg,var(--main-gradient-end) 0%, var(--main-gradient-start) 20%);
+    min-height: 100%;
+    color: white;
+    background-color: var(--main-gradient-end);
 }
+
+a, a:visited {
+    color: var(--main-txt-color)
+}
+
 
 header {
     text-align: center;
@@ -22,19 +32,38 @@ header {
 
 main {
     display: flex;
+    min-height: 80vh;
+    
+}
+
+@media (max-width: 830px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 div#resListDiv{
     width: 25%;
     margin: 1em;
     text-align: center;
-    border: black solid 1px;
+    border: var(--main-gradient-end) solid 1px;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+@media (max-width: 830px) {
+    div#resListDiv{
+        width: 80vw;
+        order: 1;
+    }
 }
 
 ul#resList li, ul#labMapList li {
     padding: 0;
     margin: 0;
     text-align: left;
+    padding: 0.3em;
 }
 
 ul#labMapList li {
@@ -51,12 +80,15 @@ ul#labMapList li#current a, ul#labMapList li#current a:visited {
 
 div#mainContentDiv{
     margin: 1em;
-    border: black solid 1px;
+    border: var(--main-gradient-end) solid 1px;
     width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 1em;
 }
 
 var {
@@ -118,11 +150,37 @@ button#submitButton {
     margin: 1em;
 }
 
+div.teamUserDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.teamUserLink {
+    width: 15vw;
+    color: var(--main-txt-color);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+a.teamUserLink img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid var(--main-txt-color);
+    background-color: white;
+}
+
+@media (max-width: 612px) {
+    a.teamUserLink {
+        margin: 1em;
+    }
+}
+
+
 footer {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
     background-color: var(--footer-bg-color);
     color: var(--footer-txt-color);
     text-align: center;
