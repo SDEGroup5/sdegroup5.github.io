@@ -6,6 +6,7 @@
     --nav-buttons-bg-color: black;
     --submit-button-bg-color: #006e1c;
     --submit-button-txt-color: white;
+    --current-lab-item-color: #7c0d0d;
     --var-color: #7c0d0d;
 }
 
@@ -15,29 +16,47 @@ html {
     background-color: var(--main-color);
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+header {
+    text-align: center;
 }
 
 main {
     display: flex;
+}
+
+div#resListDiv{
+    width: 25%;
+    margin: 1em;
+    text-align: center;
+    border: black solid 1px;
+}
+
+ul#resList li, ul#labMapList li {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+ul#labMapList li {
+    list-style-type: none;
+}
+
+ul#labMapList li.labMapPartTitle {
+    font-weight: bold;
+}
+
+ul#labMapList li#current a, ul#labMapList li#current a:visited {
+    color: var(--current-lab-item-color)
+}
+
+div#mainContentDiv{
+    margin: 1em;
+    border: black solid 1px;
+    width: 75%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
-    width: 30%;
-    text-align: center;
-    background-color: var(--secondary-color);
-    border-radius: 1em;
-    padding: 0.5em;
-}
-
-main:has(pre) {
-    width: 50%;
 }
 
 var {

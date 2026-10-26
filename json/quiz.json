@@ -13,7 +13,7 @@
         {
             "partId": 0,
             "type": "mc",
-            "question": "Why is it useful to use GitHub actions?",
+            "base64question": "PHN0cm9uZz5XaHkgaXMgaXQgdXNlZnVsIHRvIHVzZSBHaXRIdWIgYWN0aW9ucz88L3N0cm9uZz4=",
             "answers": ["Yes.","Not the right answer","For Continuous Development","Generic answer but very long to test the css. Like really really long answer"],
             "rightAnswer": 2
         },
@@ -27,8 +27,8 @@
         {
             "partId": 1,
             "type": "mc",
-            "question": "testQuestion",
-            "answers": ["answer1","answer2","answer3"],
+            "base64question": "PHN0cm9uZz5JcyB0aGlzIHJpZ2h0Pzwvc3Ryb25nPgo8cHJlPgo8dmFyPm9uOjwvdmFyPgogIHB1c2gKICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIm1haW4iIF0KCjx2YXI+am9iczo8L3Zhcj4KICA8dmFyPmJ1aWxkOjwvdmFyPgogICAgPHZhcj5uYW1lOjwvdmFyPiBCdWlsZCBXZWJzaXRlIEZpbGVzCiAgICA8dmFyPnJ1bnMtb246PC92YXI+dWJ1bnR1LWxhdGVzdAo8L3ByZT4=",
+            "answers": ["Push instruction is not right","answer2","answer3"],
             "rightAnswer": 0
         },
         {

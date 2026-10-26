@@ -5,6 +5,8 @@
 let jsonFile: any = null;
 const jsonFileUrl: string = "../json/quiz.json";
 const partsArray: part[] = new Array();
+const docsList: doc[] = new Array();
+let isDocListPresent: boolean = false;
 
 const nextButton = '<button id="nextButton" onclick="nextButtonPressed()"></button>';
 const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"></button>';
@@ -28,15 +30,27 @@ class currentPosition {
     }
 }
 
+class doc {
+    name: string;
+    url: string;
+
+    constructor(name: string, url: string) {
+        this.name = name;
+        this.url = url;
+    }
+}
+
 class mc {
     partId: number;
-    question: string;
+    index: number;
+    base64Question: string;
     answers: string[];
     rightAnswer: number;
 
-    constructor(partId: number, question: string, answers: string[], rightAnswer: number) {
+    constructor(partId: number, index: number, base64Question: string, answers: string[], rightAnswer: number) {
         this.partId = partId;
-        this.question = question;
+        this.index = index;
+        this.base64Question = base64Question;
         this.answers = answers;
         this.rightAnswer = rightAnswer;
     }
@@ -44,12 +58,14 @@ class mc {
 
 class cq {
     partId: number;
+    index: number;
     description: string;
     base64code: string;
     rightFillers: string[];
 
-    constructor(partId: number, description: string, base64code: string, rightFillers: string[]) {
+    constructor(partId: number, index: number, description: string, base64code: string, rightFillers: string[]) {
         this.partId = partId;
+        this.index = index;
         this.description = description;
         this.base64code = base64code;
         this.rightFillers = rightFillers;
@@ -74,10 +90,12 @@ class part {
 
 class exercise {
     partId: number;
+    index: number;
     base64description: string;
 
-    constructor(partId: number, base64description: string) {
+    constructor(partId: number, index: number, base64description: string) {
         this.partId = partId;
+        this.index = index;
         this.base64description = base64description;
     }
 }
@@ -117,10 +135,17 @@ async function assignExercise() {
         }
     }
 
-    for (const obj of jsonFile.exercise) {
+    let counter: number = 0;
+    let oldExPart: number = 0;
 
+    for (const obj of jsonFile.exercise) {
         if ("partId" in obj && partsArray[obj.partId] && "base64description" in obj) {
-            partsArray[obj.partId].exerciseArray.push(new exercise(obj.partId, obj.base64description));
+            if (obj.partId != oldExPart) {
+                counter = 0;
+                oldExPart = obj.partId;
+            }
+            partsArray[obj.partId].exerciseArray.push(new exercise(obj.partId, counter, obj.base64description));
+            counter += 1;
         }
 
     }
@@ -134,17 +159,32 @@ async function assignQuiz() {
         }
     }
 
+    let mcCounter: number = 0;
+    let cqCounter: number = 0;
+    let oldMcPart: number = 0;
+    let oldCqPart: number = 0;
+
     for (const obj of jsonFile.quiz) {
         if ("partId" in obj && partsArray[obj.partId] && "type" in obj) {
             switch (obj.type) {
                 case choiceType.mc:
-                    if ("question" in obj && "answers" in obj && "rightAnswer" in obj) {
-                        partsArray[obj.partId].mcArray.push(new mc(obj.partId, obj.question, obj.answers, obj.rightAnswer));
+                    if ("base64question" in obj && "answers" in obj && "rightAnswer" in obj) {
+                        if (obj.partId != oldMcPart) {
+                            mcCounter = 0;
+                            oldMcPart = obj.partId;
+                        }
+                        partsArray[obj.partId].mcArray.push(new mc(obj.partId, mcCounter, obj.base64question, obj.answers, obj.rightAnswer));
+                        mcCounter += 1;
                     }
                     break;
                 case choiceType.cq:
                     if ("description" in obj && "base64code" in obj && "rightFillers" in obj) {
-                        partsArray[obj.partId].cqArray.push(new cq(obj.partId, obj.description, obj.base64code, obj.rightFillers));
+                        if (obj.partId != oldCqPart) {
+                            cqCounter = 0;
+                            oldCqPart = obj.partId;
+                        }
+                        partsArray[obj.partId].cqArray.push(new cq(obj.partId, cqCounter, obj.description, obj.base64code, obj.rightFillers));
+                        cqCounter += 1;
                     }
                     break;
                 default:
@@ -155,14 +195,157 @@ async function assignQuiz() {
     }
 }
 
-function formatPage() {
-    const main = document.querySelector("main");
+async function retrieveDocs() {
+    const docsListRes = await fetch("https://api.github.com/repos/sdegroup5/docs/releases/latest");
 
-    if (!main) {
+    if (!docsListRes.ok) {
         return;
     }
 
-    main.innerHTML = "{{CONTENT}}";
+    const docsListJson = await docsListRes.json();
+
+    if (!("assets" in docsListJson) || !(Array.isArray(docsListJson["assets"]))) {
+        return;
+    }
+
+    for (const asset of docsListJson["assets"]) {
+        if (!("name" in asset) || !("browser_download_url" in asset)) {
+            continue;
+        }
+        docsList.push(new doc(asset["name"], asset["browser_download_url"]));
+    }
+}
+
+function buildLabMap() {
+    const mapListUl: HTMLElement | null = document.getElementById("labMapList");
+
+    if (mapListUl === null || !(mapListUl instanceof HTMLUListElement)) {
+        return;
+    }
+
+    mapListUl.innerHTML = "";
+
+    let partCounter: number = 1;
+    const cp = loadPosition();
+
+    for (const part of partsArray) {
+        const item = document.createElement("li");
+        item.setAttribute("class", "labMapPartTitle");
+
+        item.innerHTML = `Part ${partCounter}`;
+        mapListUl.appendChild(item);
+
+        let exCounter: number = 1;
+        for (const mc of part.mcArray) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+
+            item.innerHTML = "&emsp;";
+            link.href = "#";
+            link.innerHTML = `Choice ${exCounter}`;
+
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                savePosition(new currentPosition(mc.partId, choiceType.mc, mc.index));
+                formatPage();
+            });
+
+            item.appendChild(link);
+            mapListUl.appendChild(item);
+
+            if (cp.partId == part.id && cp.type == choiceType.mc && cp.index == exCounter - 1) {
+                item.setAttribute("id", "current");
+            }
+
+            exCounter += 1;
+        }
+
+        exCounter = 1;
+        for (const cq of part.cqArray) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+
+            item.innerHTML = "&emsp;";
+            link.href = "#";
+            link.innerHTML = `Complete ${exCounter}`;
+
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                savePosition(new currentPosition(cq.partId, choiceType.cq, cq.index));
+                formatPage();
+            });
+
+            item.appendChild(link);
+            mapListUl.appendChild(item);
+
+            if (cp.partId == part.id && cp.type == choiceType.cq && cp.index == exCounter - 1) {
+                item.setAttribute("id", "current");
+            }
+
+            exCounter += 1;
+        }
+
+        exCounter = 1;
+        for (const ex of part.exerciseArray) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+
+            link.href = "#";
+            item.innerHTML = "&emsp;";
+            link.innerHTML = `Exercise ${exCounter}`;
+
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                savePosition(new currentPosition(ex.partId, choiceType.ex, ex.index));
+                formatPage();
+            });
+
+            item.appendChild(link);
+            mapListUl.appendChild(item);
+
+            if (cp.partId == part.id && cp.type == choiceType.ex && cp.index == exCounter - 1) {
+                item.setAttribute("id", "current");
+            }
+
+            exCounter += 1;
+        }
+
+        partCounter += 1;
+    }
+}
+
+async function formatPage() {
+    // Create docs list
+    if (!isDocListPresent) {
+        docsList.splice(0, docsList.length);
+
+        const docsListUl: HTMLElement | null = document.getElementById("resList");
+
+        if (docsList === null || !(docsListUl instanceof HTMLUListElement)) {
+            return;
+        }
+
+        //await retrieveDocs();
+
+        for (const doc of docsList) {
+            const item = document.createElement("li");
+
+            item.innerHTML = `<a href="${doc.url}" target="_blank">${doc.name}</a>`;
+
+            docsListUl.appendChild(item);
+        }
+
+        isDocListPresent = true;
+    }
+
+    // Create the page
+    const ct: HTMLElement | null = document.getElementById("mainContentDiv");
+
+    if (ct === null || !(ct instanceof HTMLDivElement)) {
+        return;
+    }
+
+    ct.innerHTML = "{{CONTENT}}";
 
     const cp = loadPosition();
 
@@ -180,7 +363,7 @@ function formatPage() {
                     return;
                 }
                 let mcq = part.mcArray[cp.index];
-                content += `<strong> ${mcq.question} </strong>`;
+                content += `${atob(mcq.base64Question)}`;
                 for (const q of mcq.answers) {
                     content += `<div class="radioDiv"><input type="radio" name="answer" value="${q}" id="${q}"> <label for="${q}" id="${q}label">${q}</label></div>`;
                 }
@@ -215,7 +398,9 @@ function formatPage() {
         savePosition(cp);
         content += 'Thank you for following the lab';
     }
-    main.innerHTML = main.innerHTML.replace("{{CONTENT}}", content);
+    ct.innerHTML = ct.innerHTML.replace("{{CONTENT}}", content);
+
+    buildLabMap();
 
 }
 
