@@ -42,7 +42,7 @@
     "exercise": [
         {
             "partId": 0,
-            "base64description": "dGVzdA=="
+            "base64description": "PGRpdiBjbGFzcz0iY29weVNlY3Rpb24iPgogICAgICAgICAgICAgICAgPHAgY2xhc3M9ImNvbW1hbmRQIj4KICAgICAgICAgICAgICAgICAgICBnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL1NERUdyb3VwNS9naXRodWItYWN0aW9ucy5naXQKICAgICAgICAgICAgICAgICAgICA8YnI+CiAgICAgICAgICAgICAgICAgICAgbXYgLi90ZXN0LnR4dCAuLi90ZXN0LnR4dAogICAgICAgICAgICAgICAgPC9wPgogICAgICAgICAgICAgICAgPGEgaHJlZj0iIyIgb25jbGljaz0iY29weUNvbW1hbmQoZXZlbnQsdGhpcykiPjxpbWcgc3JjPSIvYXNzZXRzL2ljb25zL21kaS0tY29udGVudC1jb3B5LnN2ZyI+PC9hPgogICAgICAgICAgICA8L2Rpdj4="
         },
         {
             "partId": 1,

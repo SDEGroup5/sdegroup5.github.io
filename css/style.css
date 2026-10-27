@@ -7,9 +7,11 @@
     --secondary-color: #4e4e8854;
     --nav-buttons-bg-color: black;
     --submit-button-bg-color: #199137;
+    --copied-alert-bg-color: #199137;
     --submit-button-txt-color: white;
     --current-lab-item-color: #ffb109;
     --var-color: #ffb109;
+    --copy-section-color: rgba(0, 0, 0, 1)
 }
 
 html {
@@ -33,7 +35,6 @@ header {
 main {
     display: flex;
     min-height: 80vh;
-    
 }
 
 @media (max-width: 830px) {
@@ -156,6 +157,37 @@ div.teamUserDiv {
     justify-content: center;
 }
 
+div.copySection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--copy-section-color);
+    padding: 0.5em;
+    border-radius: 20px;
+    margin: 0.5em
+}
+
+div.copySection a {
+    margin: 1em;
+}
+
+div.copySection p.commandP {
+    font-family: "monospace;";
+}
+
+div#copyAlertDiv {
+    text-align: center;
+    border: 2px solid var(--main-gradient-end);
+    position: sticky;
+    bottom: 0;    
+    padding: 0.5em;
+    margin: 1em;
+    width: 20%;
+    background-color: var(--copied-alert-bg-color);
+    border-radius: 20px;
+    display: none;
+}
+
 a.teamUserLink {
     width: 15vw;
     color: var(--main-txt-color);
@@ -179,10 +211,10 @@ a.teamUserLink img {
     }
 }
 
-
 footer {
     background-color: var(--footer-bg-color);
     color: var(--footer-txt-color);
     text-align: center;
     min-width: 100vw;
+    overflow-x: hidden;
 }

@@ -664,6 +664,38 @@ function nextButtonPressed() {
     formatPage();
 }
 
+function copyCommand(event: Event,link: HTMLLinkElement) {
+    event.preventDefault();
+
+    const parent = link.closest('div');
+
+    if(parent===null) {
+        return
+    }
+
+    const code = parent.querySelector('p');
+
+    if (code==null) {
+        return null
+    }
+
+    navigator.clipboard.writeText(code.innerText).then(()=>{
+            const alert: HTMLElement | null = document.getElementById("copyAlertDiv")
+
+            if(alert==null) {
+                return
+            }
+
+            alert.style = "display: block"
+
+            setTimeout(()=>{
+               alert.style = "display: none" 
+            },2000)
+        }
+        )
+
+}
+
 async function main() {
     await buildParts();
     await assignQuiz();
