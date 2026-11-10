@@ -374,7 +374,7 @@ async function formatPage() {
                     return;
                 }
                 let cqq = part.cqArray[cp.index];
-                content += `<strong>${cqq.description}</strong>${atob(cqq.base64code)} <br>`;
+                content += `<strong class="question">${cqq.description}</strong>${atob(cqq.base64code)} <br>`;
                 break;
             case choiceType.ex:
                 if (part.exerciseArray.length == 0) {
@@ -457,11 +457,11 @@ function checkAnswer() {
                         continue;
                     }
                     if (index == rightAnswer) {
-                        par.innerText = "OK";
+                        par.innerText = "Correct!";
 
                         break;
                     } else {
-                        par.innerText = "WRONG";
+                        par.innerText = "Wrong answer, please retry";
                         break;
                     }
                 }
@@ -469,7 +469,12 @@ function checkAnswer() {
             break;
         case choiceType.cq:
             {
-                const fillers = document.querySelectorAll('input[type="text"]');
+                let fillers = document.querySelectorAll('input[type="text"]');
+
+                if (fillers.length == 0) {
+                    fillers = document.querySelectorAll('input[type="number"]');
+                }
+
                 const rightFillers = partsArray[cp.partId].cqArray[cp.index].rightFillers;
                 let index = 0;
 
@@ -478,8 +483,9 @@ function checkAnswer() {
                         continue;
                     }
 
-                    if (f.value != rightFillers[index]) {
-                        par.innerText = "WRONG";
+                    if (f.value == "" || f.value != rightFillers[index]) {
+                        console.count("test2 " + f.value + rightFillers);
+                        par.innerText = "Wrong answer, please retry";
                         break;
                     }
 
@@ -487,7 +493,7 @@ function checkAnswer() {
                 }
 
                 if (par.innerText == "") {
-                    par.innerText = "OK";
+                    par.innerText = "Correct!";
                 }
             }
             break;
@@ -664,35 +670,35 @@ function nextButtonPressed() {
     formatPage();
 }
 
-function copyCommand(event: Event,link: HTMLLinkElement) {
+function copyCommand(event: Event, link: HTMLLinkElement) {
     event.preventDefault();
 
     const parent = link.closest('div');
 
-    if(parent===null) {
-        return
+    if (parent === null) {
+        return;
     }
 
     const code = parent.querySelector('p');
 
-    if (code==null) {
-        return null
+    if (code == null) {
+        return null;
     }
 
-    navigator.clipboard.writeText(code.innerText).then(()=>{
-            const alert: HTMLElement | null = document.getElementById("copyAlertDiv")
+    navigator.clipboard.writeText(code.innerText).then(() => {
+        const alert: HTMLElement | null = document.getElementById("copyAlertDiv");
 
-            if(alert==null) {
-                return
-            }
-
-            alert.style = "display: block"
-
-            setTimeout(()=>{
-               alert.style = "display: none" 
-            },2000)
+        if (alert == null) {
+            return;
         }
-        )
+
+        alert.style = "display: block";
+
+        setTimeout(() => {
+            alert.style = "display: none";
+        }, 2000);
+    }
+    );
 
 }
 

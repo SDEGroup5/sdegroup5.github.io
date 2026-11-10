@@ -13,7 +13,7 @@
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZz5BIHdvcmtmbG93IGhhcyB0d28gam9icy4gVGhlIDxjb2RlPmJ1aWxkPC9jb2RlPiBqb2IgY29tcGlsZXMgdGhlIGNvZGUgYW5kIHByb2R1Y2VzIHRoZSBmb2xkZXIgPGNvZGU+Li9kaXN0PC9jb2RlPi4gVGhlIDxjb2RlPnBhY2thZ2U8L2NvZGU+IGpvYiBkZWNsYXJlcyA8Y29kZT5uZWVkczogYnVpbGQ8L2NvZGU+LCBpbmNsdWRlcyA8Y29kZT5hY3Rpb25zL2NoZWNrb3V0QHY0PC9jb2RlPiwgYW5kIHRoZW4gcnVucyA8Y29kZT5scyAuL2Rpc3Q8L2NvZGU+LiBXaGF0IGhhcHBlbnM/PC9zdHJvbmc+",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgd29ya2Zsb3cgaGFzIHR3byBqb2JzLiBUaGUgPGNvZGU+YnVpbGQ8L2NvZGU+IGpvYiBjb21waWxlcyB0aGUgY29kZSBhbmQgcHJvZHVjZXMgdGhlIGZvbGRlciA8Y29kZT4uL2Rpc3Q8L2NvZGU+LiBUaGUgPGNvZGU+cGFja2FnZTwvY29kZT4gam9iIGRlY2xhcmVzIDxjb2RlPm5lZWRzOiBidWlsZDwvY29kZT4sIGluY2x1ZGVzIDxjb2RlPmFjdGlvbnMvY2hlY2tvdXRAdjQ8L2NvZGU+LCBhbmQgdGhlbiBydW5zIDxjb2RlPmxzIC4vZGlzdDwvY29kZT4uIFdoYXQgaGFwcGVucz88L3N0cm9uZz4=",
       "answers": [
         "The step succeeds, because needs makes the package job inherit the filesystem of build",
         "The step fails, because ./dist does not exist on the fresh runner: needs only controls the execution order, not file sharing",
@@ -25,7 +25,7 @@
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZz5BIHJlcG9zaXRvcnkgY29udGFpbnMgdGhlIGZvbGxvd2luZyB0cmlnZ2VyLiBXaGljaCBvZiB0aGUgZm9sbG93aW5nIGFjdGlvbnMgd2lsbCBzdGFydCB0aGlzIHdvcmtmbG93Pzwvc3Ryb25nPgo8cHJlPgo8dmFyPm9uOjwvdmFyPgogIDx2YXI+cHVzaDo8L3Zhcj4KICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIm1haW4iIF0KPC9wcmU+",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgcmVwb3NpdG9yeSBjb250YWlucyB0aGUgZm9sbG93aW5nIHRyaWdnZXIuIFdoaWNoIG9mIHRoZSBmb2xsb3dpbmcgYWN0aW9ucyB3aWxsIHN0YXJ0IHRoaXMgd29ya2Zsb3c/PC9zdHJvbmc+CjxwcmU+Cjx2YXI+b246PC92YXI+CiAgPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQo8L3ByZT4=",
       "answers": [
         "Pushing a new commit to a branch called feature/login",
         "Opening a pull request from feature/login to main",
@@ -37,7 +37,7 @@
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZz5BIHRlYW0gbmVlZHMgaXRzIENJIGpvYnMgdG8gcmVhY2ggYSBwcml2YXRlIGRhdGFiYXNlIGluc2lkZSB0aGUgY29tcGFueSBMQU4sIGFuZCB3YW50cyBpbnN0YWxsZWQgcGFja2FnZXMgdG8gcmVtYWluIG9uIGRpc2sgYmV0d2VlbiBydW5zLiBXaGljaCBjaG9pY2UgaXMgdGhlIG1vc3QgYXBwcm9wcmlhdGUsIGFuZCB3aHk/PC9zdHJvbmc+",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgdGVhbSBuZWVkcyBpdHMgQ0kgam9icyB0byByZWFjaCBhIHByaXZhdGUgZGF0YWJhc2UgaW5zaWRlIHRoZSBjb21wYW55IExBTiwgYW5kIHdhbnRzIGluc3RhbGxlZCBwYWNrYWdlcyB0byByZW1haW4gb24gZGlzayBiZXR3ZWVuIHJ1bnMuIFdoaWNoIGNob2ljZSBpcyB0aGUgbW9zdCBhcHByb3ByaWF0ZSwgYW5kIHdoeT88L3N0cm9uZz4=",
       "answers": [
         "runs-on: ubuntu-latest, because GitHub-hosted runners keep their state between runs",
         "runs-on: ubuntu-latest, because GitHub-hosted runners can access any private network by default",
@@ -49,7 +49,7 @@
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZz5XaGljaCBzdGF0ZW1lbnQgYWJvdXQgQWN0aW9uIHZlcnNpb25pbmcgaXMgY29ycmVjdD88L3N0cm9uZz4=",
+      "base64question": "PHN0cm9uZyBjbGFzcz0ic3Ryb25nIj5XaGljaCBzdGF0ZW1lbnQgYWJvdXQgQWN0aW9uIHZlcnNpb25pbmcgaXMgY29ycmVjdD88L3N0cm9uZz4=",
       "answers": [
         "@v4 always stays on the exact same code, while @v4.1.2 automatically receives the latest patches",
         "@v4 automatically receives the latest v4.x patches while keeping a stable API, whereas @v4.1.2 is fully predictable but gets no automatic bug fixes",
@@ -62,7 +62,7 @@
       "partId": 0,
       "type": "cq",
       "description": "Fill the gap with the keyword that makes the test job run only after build has completed successfully.",
-      "base64code": "PHByZT4KPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICA8dmFyPnRlc3Q6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPjx2YXI+OjwvdmFyPiBidWlsZAo8L3ByZT4=",
+      "base64code": "PHByZT4KPHZhcj5uYW1lOjwvdmFyPiBBY3Rpb24gbmFtZQoKPHZhcj5vbjo8L3Zhcj4KIDx2YXI+cHVzaDo8L3Zhcj4KICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIm1haW4iIF0KCjx2YXI+am9iczo8L3Zhcj4KICA8dmFyPmJ1aWxkOjwvdmFyPgogICAgPHZhcj5ydW5zLW9uOjwvdmFyPiB1YnVudHUtbGF0ZXN0CiAgICA8dmFyPnN0ZXBzOjwvdmFyPgogICAgIC0gPHZhcj5uYW1lOjwvdmFyPiBDb21waWxlCiAgICAgICA8dmFyPnJ1bjo8L3Zhcj4gZ2NjIC1vIG1haW4ub3V0IG1haW4uYwogIDx2YXI+dGVzdDo8L3Zhcj4KICAgIDx2YXI+cnVucy1vbjo8L3Zhcj4gdWJ1bnR1LWxhdGVzdAogICAgPGlucHV0IHR5cGU9InRleHQiIHBsYWNlaG9sZGVyPSJXcml0ZSB5b3VyIGFuc3dlciI+PHZhcj46PC92YXI+IGJ1aWxkCiAgICA8dmFyPnN0ZXBzOjwvdmFyPgogICAgIC0gPHZhcj5uYW1lOjwvdmFyPiBDb21waWxlCiAgICAgICA8dmFyPnJ1bjo8L3Zhcj4gdGVzdFV0aWxpdHkKPC9wcmU+",
       "rightFillers": [
         "needs"
       ]
@@ -71,7 +71,7 @@
       "partId": 0,
       "type": "cq",
       "description": "Fill the gaps with the right keywords: one imports a pre-built Action, the other executes a shell command.",
-      "base64code": "PHByZT4KPHZhcj5zdGVwczo8L3Zhcj4KICAtIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPjx2YXI+OjwvdmFyPiBhY3Rpb25zL2NoZWNrb3V0QHY0CiAgLSA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj48dmFyPjo8L3Zhcj4gZWNobyAiSGVsbG8iCjwvcHJlPg==",
+      "base64code": "PHByZT4KPHZhcj5uYW1lOjwvdmFyPiBBY3Rpb24gbmFtZQoKPHZhcj5vbjo8L3Zhcj4KIDx2YXI+cHVzaDo8L3Zhcj4KICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIm1haW4iIF0KCjx2YXI+am9iczo8L3Zhcj4KIDx2YXI+Sm9iTmFtZTo8L3Zhcj4KICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICA8dmFyPnN0ZXBzOjwvdmFyPgogICAtIDx2YXI+bmFtZTo8L3Zhcj4gQ2hlY2tvdXQKICAgICA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj46IGFjdGlvbnMvY2hlY2tvdXRAdjQKICAgLSA8dmFyPm5hbWU6PC92YXI+IFByaW50CiAgICAgPGlucHV0IHR5cGU9InRleHQiIHBsYWNlaG9sZGVyPSJXcml0ZSB5b3VyIGFuc3dlciI+OiBlY2hvICJIZWxsbyIKPC9wcmU+",
       "rightFillers": [
         "uses",
         "run"
@@ -81,16 +81,16 @@
       "partId": 0,
       "type": "cq",
       "description": "Fill the gap with the exit code that makes a step succeed.",
-      "base64code": "PHByZT4KPHZhcj5zdGVwczo8L3Zhcj4KICAtIDx2YXI+bmFtZTo8L3Zhcj4gVGhpcyBzdGVwIHBhc3NlcwogICAgPHZhcj5ydW46PC92YXI+IGVjaG8gIkFsbCBnb29kIiAgICMgZXhpdCBjb2RlIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPiAtPiBHcmVlbgogIC0gPHZhcj5uYW1lOjwvdmFyPiBUaGlzIHN0ZXAgZmFpbHMKICAgIDx2YXI+cnVuOjwvdmFyPiBleGl0IDEgICAgICAgICAgICAjIGFueSBub24temVybyBleGl0IGNvZGUgLT4gUmVkCjwvcHJlPg==",
+      "base64code": "PHByZT4KPHZhcj5uYW1lOjwvdmFyPiBBY3Rpb24gbmFtZQoKPHZhcj5vbjo8L3Zhcj4KIDx2YXI+cHVzaDo8L3Zhcj4KICAgIDx2YXI+YnJhbmNoZXM6PC92YXI+IFsgIm1haW4iIF0KCjx2YXI+am9iczo8L3Zhcj4KICA8dmFyPmJ1aWxkOjwvdmFyPgogICAgPHZhcj5ydW5zLW9uOjwvdmFyPiB1YnVudHUtbGF0ZXN0CiAgICA8dmFyPnN0ZXBzOjwvdmFyPgogICAgIC0gPHZhcj5uYW1lOjwvdmFyPiBUaGlzIHN0ZXAgcGFzc2VzCiAgICAgICA8dmFyPnJ1bjo8L3Zhcj4gZWNobyAiQWxsIGdvb2QiICMgZXhpdCBjb2RlIDxpbnB1dCB0eXBlPSJudW1iZXIiPiAtPiBHcmVlbgogICAgIC0gPHZhcj5uYW1lOjwvdmFyPiBUaGlzIHN0ZXAgZmFpbHMKICAgICAgIDx2YXI+cnVuOjwvdmFyPiBleGl0IDEgIyBhbnkgbm9uLXplcm8gZXhpdCBjb2RlIC0+IFJlZAo8L3ByZT4=",
       "rightFillers": [
-        "0"
+        0
       ]
     },
     {
       "partId": 0,
       "type": "cq",
-      "description": "Fill the gaps with the directory where workflow files must be placed and with the runner that selects a GitHub-hosted Linux machine.",
-      "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPmpvYnM6PC92YXI+CiAgPHZhcj5jb21waWxlOjwvdmFyPgogICAgPHZhcj5ydW5zLW9uOjwvdmFyPiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
+      "description": "Fill the gaps with the directory where workflow files must be placed and with the runner that selects a GitHub-hosted Ubuntu machine.",
+      "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPm5hbWU6PC92YXI+IEFjdGlvbiBuYW1lCgo8dmFyPm9uOjwvdmFyPgogPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPgogICAgPHZhcj5zdGVwczo8L3Zhcj4KICAgICAtIDx2YXI+bmFtZTo8L3Zhcj4gQ29tcGlsZQogICAgICAgPHZhcj5ydW46PC92YXI+IGdjYyAtbyBtYWluLm91dCBtYWluLmMKPC9wcmU+",
       "rightFillers": [
         ".github/workflows",
         "ubuntu-latest"
@@ -99,7 +99,7 @@
   ],
     "exercise": [
         {
-            "partId": 0,
+            "partId": 1,
             "base64description": "PGRpdiBjbGFzcz0iY29weVNlY3Rpb24iPgogICAgICAgICAgICAgICAgPHAgY2xhc3M9ImNvbW1hbmRQIj4KICAgICAgICAgICAgICAgICAgICBnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL1NERUdyb3VwNS9naXRodWItYWN0aW9ucy5naXQKICAgICAgICAgICAgICAgICAgICA8YnI+CiAgICAgICAgICAgICAgICAgICAgbXYgLi90ZXN0LnR4dCAuLi90ZXN0LnR4dAogICAgICAgICAgICAgICAgPC9wPgogICAgICAgICAgICAgICAgPGEgaHJlZj0iIyIgb25jbGljaz0iY29weUNvbW1hbmQoZXZlbnQsdGhpcykiPjxpbWcgc3JjPSIvYXNzZXRzL2ljb25zL21kaS0tY29udGVudC1jb3B5LnN2ZyI+PC9hPgogICAgICAgICAgICA8L2Rpdj4="
         },
         {

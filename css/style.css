@@ -97,12 +97,21 @@ var {
 }
 
 div.radioDiv {
-    min-width: 100%;
+    width: 50%;
     display: flex;
     align-items: start;
     justify-content: left;
     text-align: left;
-    margin: 0.4em;
+    margin: auto;
+}
+
+input[type="number"] {
+    max-width: 2em;
+}
+
+strong.question {
+    max-width: 50%;
+    margin: 2em;
 }
 
 div#navMenu {
@@ -209,12 +218,27 @@ a.teamUserLink img {
     a.teamUserLink {
         margin: 1em;
     }
+
+    div.radioDiv {
+        width: 100%;
+        margin: 1em;
+    }
+
+    strong.question {
+        max-width: 100%;
+        margin: 1em;
+    }
+
+    div#mainContentDiv {
+        width: 90vw;
+    }
+
 }
 
 footer {
     background-color: var(--footer-bg-color);
     color: var(--footer-txt-color);
     text-align: center;
-    min-width: 100vw;
-    overflow-x: hidden;
+    min-width: 95vw;
+    overflow: hidden;
 }
