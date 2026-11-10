@@ -59,7 +59,7 @@
       "rightAnswer": 1
     },
     {
-      "partId": 1,
+      "partId": 0,
       "type": "cq",
       "description": "Fill the gap with the keyword that makes the test job run only after build has completed successfully.",
       "base64code": "PHByZT4KPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICA8dmFyPnRlc3Q6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPjx2YXI+OjwvdmFyPiBidWlsZAo8L3ByZT4=",
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "partId": 1,
+      "partId": 0,
       "type": "cq",
       "description": "Fill the gaps with the right keywords: one imports a pre-built Action, the other executes a shell command.",
       "base64code": "PHByZT4KPHZhcj5zdGVwczo8L3Zhcj4KICAtIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPjx2YXI+OjwvdmFyPiBhY3Rpb25zL2NoZWNrb3V0QHY0CiAgLSA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj48dmFyPjo8L3Zhcj4gZWNobyAiSGVsbG8iCjwvcHJlPg==",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "partId": 1,
+      "partId": 0,
       "type": "cq",
       "description": "Fill the gap with the exit code that makes a step succeed.",
       "base64code": "PHByZT4KPHZhcj5zdGVwczo8L3Zhcj4KICAtIDx2YXI+bmFtZTo8L3Zhcj4gVGhpcyBzdGVwIHBhc3NlcwogICAgPHZhcj5ydW46PC92YXI+IGVjaG8gIkFsbCBnb29kIiAgICMgZXhpdCBjb2RlIDxpbnB1dCB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iV3JpdGUgeW91ciBhbnN3ZXIiPiAtPiBHcmVlbgogIC0gPHZhcj5uYW1lOjwvdmFyPiBUaGlzIHN0ZXAgZmFpbHMKICAgIDx2YXI+cnVuOjwvdmFyPiBleGl0IDEgICAgICAgICAgICAjIGFueSBub24temVybyBleGl0IGNvZGUgLT4gUmVkCjwvcHJlPg==",
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "partId": 1,
+      "partId": 0,
       "type": "cq",
       "description": "Fill the gaps with the directory where workflow files must be placed and with the runner that selects a GitHub-hosted Linux machine.",
       "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPmpvYnM6PC92YXI+CiAgPHZhcj5jb21waWxlOjwvdmFyPgogICAgPHZhcj5ydW5zLW9uOjwvdmFyPiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4KPC9wcmU+",
