@@ -11,7 +11,7 @@ let isDocListPresent: boolean = false;
 const nextButton = '<button id="nextButton" onclick="nextButtonPressed()"></button>';
 const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"></button>';
 const submitButton = '<button id="submitButton" onClick="checkAnswer()">Submit</button>';
-const startPageContent = '<p>Welcome to the 5th lab of the Service Design and Engineering course @UniTn</p><p> Press the button below to start. Please wait instruction before proceeding across the various parts</p> ' + '<div id = "navMenu">' + nextButton + '</div>';
+const startPageContent = '<p>Welcome to the 5th lab of the Service Design and Engineering course @UniTn</p><p> Press the button below to start. Please wait further instructions before proceeding across the various parts</p> ' + '<div id = "navMenu">' + nextButton + '</div>';
 const endPageContent = `
     <p class="strongText">Thank you for your attention!</p>
     <br>
@@ -24,9 +24,9 @@ const endPageContent = `
                 <img src="https://avatars.githubusercontent.com/u/150455831?s=70&v=4">
                 <p class="username">FilizZPalm</p>
             </a>
-            <a href="https://github.com/ozneroL541" class="teamUserLink">
+            <a href="https://github.com/radix54" class="teamUserLink">
                 <img src="https://avatars.githubusercontent.com/u/117105676?s=70&v=4">
-                <p class="username">ozneroL541</p>
+                <p class="username">radix54</p>
             </a>
     </div>
     <div class="teamUserDiv" id="teamUserDiv1">
