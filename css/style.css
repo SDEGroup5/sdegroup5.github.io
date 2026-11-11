@@ -53,6 +53,10 @@ div#resListDiv{
     border-radius: 20px;
 }
 
+img#loadingIcon {
+    width: 10%;
+}
+
 @media (max-width: 830px) {
     div#resListDiv{
         width: 80vw;
@@ -195,6 +199,10 @@ div#copyAlertDiv {
     background-color: var(--copied-alert-bg-color);
     border-radius: 20px;
     display: none;
+}
+
+p.strongText {
+    font-weight: bold;
 }
 
 a.teamUserLink {

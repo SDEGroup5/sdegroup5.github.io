@@ -2,11 +2,15 @@
   "parts": [
     {
       "id": 0,
-      "title": "Multiple choice"
+      "title": "Introduction"
     },
     {
       "id": 1,
-      "title": "Fill in the gaps"
+      "title": "Running tests"
+    },
+    {
+      "id": 2,
+      "title": "Creating images"
     }
   ],
   "quiz": [
@@ -90,8 +94,27 @@
       "partId": 0,
       "type": "cq",
       "description": "Fill the gap with the directory where workflow files must be placed.",
-"base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPm5hbWU6PC92YXI+IEFjdGlvbiBuYW1lCgo8dmFyPm9uOjwvdmFyPgogPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDx2YXI+c3RlcHM6PC92YXI+CiAgICAgLSA8dmFyPm5hbWU6PC92YXI+IENvbXBpbGUKICAgICAgIDx2YXI+cnVuOjwvdmFyPiBnY2MgLW8gbWFpbi5vdXQgbWFpbi5jCjwvcHJlPg==",
-"rightFillers": [".github/workflows"]
+      "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPm5hbWU6PC92YXI+IEFjdGlvbiBuYW1lCgo8dmFyPm9uOjwvdmFyPgogPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDx2YXI+c3RlcHM6PC92YXI+CiAgICAgLSA8dmFyPm5hbWU6PC92YXI+IENvbXBpbGUKICAgICAgIDx2YXI+cnVuOjwvdmFyPiBnY2MgLW8gbWFpbi5vdXQgbWFpbi5jCjwvcHJlPg==",
+      "rightFillers": [".github/workflows"]
+    },
+    {
+      "partId": 2,
+      "type": "mc",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgd29ya2Zsb3cgaGFzIHR3byBqb2JzLiBUaGUgPGNvZGU+YnVpbGQ8L2NvZGU+IGpvYiBjb21waWxlcyB0aGUgY29kZSBhbmQgcHJvZHVjZXMgdGhlIGZvbGRlciA8Y29kZT4uL2Rpc3Q8L2NvZGU+LiBUaGUgPGNvZGU+cGFja2FnZTwvY29kZT4gam9iIGRlY2xhcmVzIDxjb2RlPm5lZWRzOiBidWlsZDwvY29kZT4sIGluY2x1ZGVzIDxjb2RlPmFjdGlvbnMvY2hlY2tvdXRAdjQ8L2NvZGU+LCBhbmQgdGhlbiBydW5zIDxjb2RlPmxzIC4vZGlzdDwvY29kZT4uIFdoYXQgaGFwcGVucz88L3N0cm9uZz4=",
+      "answers": [
+        "The step succeeds, because needs makes the package job inherit the filesystem of build",
+        "The step fails, because ./dist does not exist on the fresh runner: needs only controls the execution order, not file sharing",
+        "The step succeeds, because actions/checkout@v4 restores all files created by previous jobs",
+        "The package job is skipped, because two jobs cannot use actions/checkout@v4 in the same workflow"
+      ],
+      "rightAnswer": 1
+    },
+    {
+      "partId": 2,
+      "type": "cq",
+      "description": "Fill the gap with the directory where workflow files must be placed.",
+      "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPm5hbWU6PC92YXI+IEFjdGlvbiBuYW1lCgo8dmFyPm9uOjwvdmFyPgogPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDx2YXI+c3RlcHM6PC92YXI+CiAgICAgLSA8dmFyPm5hbWU6PC92YXI+IENvbXBpbGUKICAgICAgIDx2YXI+cnVuOjwvdmFyPiBnY2MgLW8gbWFpbi5vdXQgbWFpbi5jCjwvcHJlPg==",
+      "rightFillers": [".github/workflows"]
     }
   ],
     "exercise": [
@@ -104,7 +127,7 @@
             "base64description": "dGVzdCBleGVyY2lzZQ=="
         },
         {
-            "partId": 1,
+            "partId": 2,
             "base64description": "TmV4dCB5b3Ugd2lsbCBmaW5pc2ggdGhlIGxhYi=="
         }
     ]

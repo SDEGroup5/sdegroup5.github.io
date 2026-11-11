@@ -11,6 +11,35 @@ let isDocListPresent: boolean = false;
 const nextButton = '<button id="nextButton" onclick="nextButtonPressed()"></button>';
 const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"></button>';
 const submitButton = '<button id="submitButton" onClick="checkAnswer()">Submit</button>';
+const startPageContent = '<p>Welcome to the 5th lab of the Service Design and Engineering course @UniTn</p><p> Press the button below to start. Please wait instruction before proceeding across the various parts</p> ' + '<div id = "navMenu">' + nextButton + '</div>';
+const endPageContent = `
+    <p class="strongText">Thank you for your attention!</p>
+    <br>
+    <div class="teamUserDiv" id="teamUserDiv0">
+            <a href="https://github.com/LorenzoCaraffini" class="teamUserLink">
+                <img src="https://avatars.githubusercontent.com/u/161510632?s=70&v=4">
+                <p class="username">LorenzoCaraffini</p>
+            </a>
+            <a href="https://github.com/FilizZPalm" class="teamUserLink">
+                <img src="https://avatars.githubusercontent.com/u/150455831?s=70&v=4">
+                <p class="username">FilizZPalm</p>
+            </a>
+            <a href="https://github.com/ozneroL541" class="teamUserLink">
+                <img src="https://avatars.githubusercontent.com/u/117105676?s=70&v=4">
+                <p class="username">ozneroL541</p>
+            </a>
+    </div>
+    <div class="teamUserDiv" id="teamUserDiv1">
+            <a href="https://github.com/FireStoat3" class="teamUserLink">
+                <img src="https://avatars.githubusercontent.com/u/161834755?s=64&v=4">
+                <p class="username">FireStoat3</p>
+            </a>
+            <a href="https://github.com/Oziator" class="teamUserLink">
+                <img src="https://avatars.githubusercontent.com/u/89981093?s=70&v=4">
+                <p class="username">Oziator</p>
+            </a>
+    </div>
+`;
 
 const enum choiceType {
     mc = "mc",
@@ -352,10 +381,10 @@ async function formatPage() {
     let content = "";
 
     if (cp.index == -1 && cp.partId == -1) {
-        content += '<p>Welcome to the 5th lab of the Service Design and Engineering course @UniTn</p><p> Press the button below to start. Please wait instruction before proceeding across the various parts</p> ' + '<div id = "navMenu">' + nextButton + '</div>';
+        content += startPageContent;
     } else if (cp.index > -1 && cp.partId > -1 && cp.partId < partsArray.length) {
         let part = partsArray[cp.partId];
-        content += `<h2>Part ${cp.partId + 1}</h2>`;
+        content += `<h2>Part ${cp.partId + 1} - ${part.title}</h2>`;
         switch (cp.type) {
             case choiceType.mc:
                 if (part.mcArray.length == 0) {
@@ -396,35 +425,9 @@ async function formatPage() {
         cp.partId = -1;
         cp.type = choiceType.mc;
         savePosition(cp);
-        content += `
-        <p>Thank you for your attention!</p>
-        <br>
-        <div class="teamUserDiv" id="teamUserDiv0">
-                <a href="https://github.com/LorenzoCaraffini" class="teamUserLink">
-                    <img src="https://avatars.githubusercontent.com/u/161510632?s=70&v=4">
-                    <p class="username">LorenzoCaraffini</p>
-                </a>
-                <a href="https://github.com/FilizZPalm" class="teamUserLink">
-                    <img src="https://avatars.githubusercontent.com/u/150455831?s=70&v=4">
-                    <p class="username">FilizZPalm</p>
-                </a>
-                <a href="https://github.com/ozneroL541" class="teamUserLink">
-                    <img src="https://avatars.githubusercontent.com/u/117105676?s=70&v=4">
-                    <p class="username">ozneroL541</p>
-                </a>
-        </div>
-        <div class="teamUserDiv" id="teamUserDiv1">
-                <a href="https://github.com/FireStoat3" class="teamUserLink">
-                    <img src="https://avatars.githubusercontent.com/u/161834755?s=64&v=4">
-                    <p class="username">FireStoat3</p>
-                </a>
-                <a href="https://github.com/Oziator" class="teamUserLink">
-                    <img src="https://avatars.githubusercontent.com/u/89981093?s=70&v=4">
-                    <p class="username">Oziator</p>
-                </a>
-        </div>
-        `;
+        content += endPageContent;
     }
+
     ct.innerHTML = ct.innerHTML.replace("{{CONTENT}}", content);
 
     buildLabMap();
@@ -484,7 +487,6 @@ function checkAnswer() {
                     }
 
                     if (f.value == "" || f.value != rightFillers[index]) {
-                        console.count("test2 " + f.value + rightFillers);
                         par.innerText = "Wrong answer, please retry";
                         break;
                     }
@@ -630,7 +632,7 @@ function nextButtonPressed() {
                 cp.type = choiceType.cq;
                 cp.index = 0;
             }
-            if (partsArray[cp.partId].cqArray.length == 0) {
+            if (partsArray[cp.partId].mcArray.length == 0) {
                 // If the current section has no element try again
                 cp.type = choiceType.cq;
                 cp.index = -1;
@@ -645,7 +647,7 @@ function nextButtonPressed() {
                 cp.type = choiceType.ex;
                 cp.index = 0;
             }
-            if (partsArray[cp.partId].exerciseArray.length == 0) {
+            if (partsArray[cp.partId].cqArray.length == 0) {
                 // If the current section has no element try again
                 cp.type = choiceType.ex;
                 cp.index = -1;
