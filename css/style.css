@@ -173,7 +173,7 @@ div.teamUserDiv {
 div.copySection {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: var(--copy-section-color);
     padding: 0.5em;
     border-radius: 20px;
