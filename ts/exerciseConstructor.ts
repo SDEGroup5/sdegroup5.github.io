@@ -2,11 +2,19 @@
 // mc = multi choice
 // cq = complete question (code must be html formatted in base64)
 
-let jsonFile: any = null;
 const jsonFileUrl: string = "../json/quiz.json";
 const partsArray: part[] = new Array();
-const docsList: doc[] = new Array();
-let isDocListPresent: boolean = false;
+const filesList: doc[] = new Array();
+const knownFileMap: Map<string, string> = new Map<string, string>([
+    ["dockerCheatSheet.pdf", "Docker_Commands.pdf"],
+    ["gitCheatSheet.pdf", "Git_Commands.pdf"],
+    ["presentation.pdf", "Presentation.pdf"],
+    ["setup.pdf", "General_Setup.pdf"],
+    ["setup.pdf", "Setup_With_VM.pdf"]
+]);
+
+let isFilesListPresent: boolean = false;
+let jsonFile: any = null;
 
 const nextButton = '<button id="nextButton" onclick="nextButtonPressed()"></button>';
 const previousButton = '<button id="previousButton" onclick="prevButtonPressed()"></button>';
@@ -224,7 +232,7 @@ async function assignQuiz() {
     }
 }
 
-async function retrieveDocs() {
+async function retrieveRes() {
     const docsListRes = await fetch("https://api.github.com/repos/sdegroup5/docs/releases/latest");
 
     if (!docsListRes.ok) {
@@ -241,8 +249,27 @@ async function retrieveDocs() {
         if (!("name" in asset) || !("browser_download_url" in asset)) {
             continue;
         }
-        docsList.push(new doc(asset["name"], asset["browser_download_url"]));
+
+        let name = asset["name"];
+
+        if (knownFileMap.has(String(asset["name"]))) {
+            name = knownFileMap.get(asset["name"]);
+        }
+
+        filesList.push(new doc(String(name), asset["browser_download_url"]));
     }
+
+    const labListRes = await fetch("https://api.github.com/repos/sdegroup5/github-actions/releases/latest");
+    const labListJson = await labListRes.json();
+
+    if (!("name" in labListJson)) {
+        return;
+    }
+
+    const resName = labListJson["name"];
+
+    filesList.push(new doc("Files.zip", `https://github.com/SDEGroup5/github-actions/archive/refs/tags/${resName}.zip`));
+
 }
 
 function buildLabMap() {
@@ -345,26 +372,26 @@ function buildLabMap() {
 
 async function formatPage() {
     // Create docs list
-    if (!isDocListPresent) {
-        docsList.splice(0, docsList.length);
+    if (!isFilesListPresent) {
+        filesList.splice(0, filesList.length);
 
-        const docsListUl: HTMLElement | null = document.getElementById("resList");
+        const fileListUl: HTMLElement | null = document.getElementById("resList");
 
-        if (docsList === null || !(docsListUl instanceof HTMLUListElement)) {
+        if (filesList === null || !(fileListUl instanceof HTMLUListElement)) {
             return;
         }
 
-        await retrieveDocs();
+        await retrieveRes();
 
-        for (const doc of docsList) {
+        for (const file of filesList) {
             const item = document.createElement("li");
 
-            item.innerHTML = `<a href="${doc.url}" target="_blank">${doc.name}</a>`;
+            item.innerHTML = `<a href="${file.url}" target="_blank">${file.name}</a>`;
 
-            docsListUl.appendChild(item);
+            fileListUl.appendChild(item);
         }
 
-        isDocListPresent = true;
+        isFilesListPresent = true;
     }
 
     // Create the page
@@ -681,10 +708,13 @@ function copyCommand(event: Event, link: HTMLLinkElement) {
         return;
     }
 
-    const code = parent.querySelector('p');
+    let code: HTMLPreElement | HTMLParagraphElement | null = parent.querySelector('p');
 
     if (code == null) {
-        return null;
+        code = parent.querySelector('pre');
+        if (code == null) {
+            return null;
+        }
     }
 
     navigator.clipboard.writeText(code.innerText).then(() => {

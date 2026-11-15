@@ -177,7 +177,8 @@ div.copySection {
     background-color: var(--copy-section-color);
     padding: 0.5em;
     border-radius: 20px;
-    margin: 0.5em
+    margin: 0.5em;
+    max-width: 95%;
 }
 
 div.copySection a {
@@ -186,6 +187,12 @@ div.copySection a {
 
 div.copySection p.commandP {
     font-family: "monospace;";
+}
+
+pre.commandP {
+    max-width: 60vw;
+    max-height: 50vh;
+    overflow: auto;
 }
 
 div#copyAlertDiv {
