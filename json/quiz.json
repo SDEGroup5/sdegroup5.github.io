@@ -100,21 +100,24 @@
     {
       "partId": 2,
       "type": "mc",
-      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgd29ya2Zsb3cgaGFzIHR3byBqb2JzLiBUaGUgPGNvZGU+YnVpbGQ8L2NvZGU+IGpvYiBjb21waWxlcyB0aGUgY29kZSBhbmQgcHJvZHVjZXMgdGhlIGZvbGRlciA8Y29kZT4uL2Rpc3Q8L2NvZGU+LiBUaGUgPGNvZGU+cGFja2FnZTwvY29kZT4gam9iIGRlY2xhcmVzIDxjb2RlPm5lZWRzOiBidWlsZDwvY29kZT4sIGluY2x1ZGVzIDxjb2RlPmFjdGlvbnMvY2hlY2tvdXRAdjQ8L2NvZGU+LCBhbmQgdGhlbiBydW5zIDxjb2RlPmxzIC4vZGlzdDwvY29kZT4uIFdoYXQgaGFwcGVucz88L3N0cm9uZz4=",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPlRoZSB3b3JrZmxvdyBydW5zIHRoZSBmb2xsb3dpbmcgY29tbWFuZC4gV2hhdCBlbmRzIHVwIGluIHRoZSA8Y29kZT5kaXN0PC9jb2RlPiBkaXJlY3Rvcnkgb24gdGhlIHJ1bm5lcj88L3N0cm9uZz4KPHByZT4KZG9ja2VyIGJ1aWxkIC1mIERvY2tlcmZpbGUuYXBwIFwKICAtLXRhcmdldCBiaW5hcnkgXAogIC0tb3V0cHV0IHR5cGU9bG9jYWwsZGVzdD1kaXN0IC4KPC9wcmU+",
       "answers": [
-        "The step succeeds, because needs makes the package job inherit the filesystem of build",
-        "The step fails, because ./dist does not exist on the fresh runner: needs only controls the execution order, not file sharing",
-        "The step succeeds, because actions/checkout@v4 restores all files created by previous jobs",
-        "The package job is skipped, because two jobs cannot use actions/checkout@v4 in the same workflow"
+        "The whole application image, ready to be started with docker run",
+        "The executable together with json/data.json, because the build copies the whole repository",
+        "Only the app executable, because the binary stage starts from scratch and copies just that file",
+        "Nothing: the --output option only works together with docker push"
       ],
-      "rightAnswer": 1
+      "rightAnswer": 2
     },
     {
       "partId": 2,
       "type": "cq",
-      "description": "Fill the gap with the directory where workflow files must be placed.",
-      "base64code": "PHByZT4KIyBGaWxlIGxvY2F0aW9uOiA8aW5wdXQgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IldyaXRlIHlvdXIgYW5zd2VyIj4vY2kueW1sCgo8dmFyPm5hbWU6PC92YXI+IEFjdGlvbiBuYW1lCgo8dmFyPm9uOjwvdmFyPgogPHZhcj5wdXNoOjwvdmFyPgogICAgPHZhcj5icmFuY2hlczo8L3Zhcj4gWyAibWFpbiIgXQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDx2YXI+c3RlcHM6PC92YXI+CiAgICAgLSA8dmFyPm5hbWU6PC92YXI+IENvbXBpbGUKICAgICAgIDx2YXI+cnVuOjwvdmFyPiBnY2MgLW8gbWFpbi5vdXQgbWFpbi5jCjwvcHJlPg==",
-      "rightFillers": [".github/workflows"]
+      "description": "Fill the gaps: build only the stage that contains the executable, then keep the file after the runner is destroyed.",
+      "base64code": "PHByZT4KIyBEb2NrZXJmaWxlLmFwcCBzdGFnZXM6IGJ1aWxkZXIsIGJpbmFyeSwgcnVudGltZQoKPHZhcj5qb2JzOjwvdmFyPgogIDx2YXI+YnVpbGQ6PC92YXI+CiAgICA8dmFyPnJ1bnMtb246PC92YXI+IHVidW50dS1sYXRlc3QKICAgIDx2YXI+c3RlcHM6PC92YXI+CiAgICAgIC0gPHZhcj5uYW1lOjwvdmFyPiBDaGVja291dCByZXBvc2l0b3J5CiAgICAgICAgPHZhcj51c2VzOjwvdmFyPiBhY3Rpb25zL2NoZWNrb3V0QHY3CgogICAgICAtIDx2YXI+bmFtZTo8L3Zhcj4gQnVpbGQgYXBwbGljYXRpb24gd2l0aCBEb2NrZXIKICAgICAgICA8dmFyPnJ1bjo8L3Zhcj4gfAogICAgICAgICAgZG9ja2VyIGJ1aWxkIC1mIERvY2tlcmZpbGUuYXBwIFwKICAgICAgICAgICAgLS10YXJnZXQgPGlucHV0IHR5cGU9InRleHQiIHBsYWNlaG9sZGVyPSJXcml0ZSB5b3VyIGFuc3dlciI+IFwKICAgICAgICAgICAgLS1vdXRwdXQgdHlwZT1sb2NhbCxkZXN0PWRpc3QgLgoKICAgICAgLSA8dmFyPm5hbWU6PC92YXI+IFVwbG9hZCBiaW5hcnkgYXJ0aWZhY3QKICAgICAgICA8dmFyPnVzZXM6PC92YXI+IGFjdGlvbnMvPGlucHV0IHR5cGU9InRleHQiIHBsYWNlaG9sZGVyPSJXcml0ZSB5b3VyIGFuc3dlciI+QHY3CiAgICAgICAgPHZhcj53aXRoOjwvdmFyPgogICAgICAgICAgPHZhcj5wYXRoOjwvdmFyPiBkaXN0L2FwcAo8L3ByZT4=",
+      "rightFillers": [
+        "binary",
+        "upload-artifact"
+      ]
     }
   ],
     "exercise": [
