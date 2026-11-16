@@ -130,6 +130,11 @@ pre {
     text-align: left;
 }
 
+img {
+    max-width: 90%;
+    margin: 1em;
+}
+
 button#previousButton {
     background-color: var(--nav-buttons-bg-color);
     background-image: url("../assets/icons/mdi--arrow-left.svg");
