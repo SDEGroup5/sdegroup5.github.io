@@ -21,12 +21,12 @@
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgd29ya2Zsb3cgaGFzIHR3byBqb2JzLiBUaGUgPGNvZGU+YnVpbGQ8L2NvZGU+IGpvYiBjb21waWxlcyB0aGUgY29kZSBhbmQgcHJvZHVjZXMgdGhlIGZvbGRlciA8Y29kZT4uL2Rpc3Q8L2NvZGU+LiBUaGUgPGNvZGU+cGFja2FnZTwvY29kZT4gam9iIGRlY2xhcmVzIDxjb2RlPm5lZWRzOiBidWlsZDwvY29kZT4sIGluY2x1ZGVzIDxjb2RlPmFjdGlvbnMvY2hlY2tvdXRAdjQ8L2NvZGU+LCBhbmQgdGhlbiBydW5zIDxjb2RlPmxzIC4vZGlzdDwvY29kZT4uIFdoYXQgaGFwcGVucz88L3N0cm9uZz4=",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgd29ya2Zsb3cgaGFzIHR3byBqb2JzLiBUaGUgPHZhcj5idWlsZDwvdmFyPiBqb2IgY29tcGlsZXMgdGhlIGNvZGUgYW5kIHByb2R1Y2VzIHRoZSBmb2xkZXIgPHZhcj4uL2Rpc3Q8L3Zhcj4uIFRoZSA8dmFyPnBhY2thZ2U8L3Zhcj4gam9iIGRlY2xhcmVzIDx2YXI+bmVlZHM6IGJ1aWxkPC92YXI+LCBpbmNsdWRlcyA8dmFyPmFjdGlvbnMvY2hlY2tvdXRAdjQ8L3Zhcj4sIGFuZCB0aGVuIHJ1bnMgPHZhcj5scyAuL2Rpc3Q8L3Zhcj4uIFdoYXQgaGFwcGVucz88L3N0cm9uZz4=",
       "answers": [
-        "The step succeeds, because needs makes the package job inherit the filesystem of build",
-        "The step fails, because ./dist does not exist on the fresh runner: needs only controls the execution order, not file sharing",
-        "The step succeeds, because actions/checkout@v4 restores all files created by previous jobs",
-        "The package job is skipped, because two jobs cannot use actions/checkout@v4 in the same workflow"
+        "The step succeeds, because <var>needs</var> makes the <var>package</var> job inherit the filesystem of <var>build</var>",
+        "The step fails, because <var>./dist</var> does not exist on the fresh runner: <var>needs</var> only controls the execution order, not file sharing",
+        "The step succeeds, because <var>actions/checkout@v4</var> restores all files created by previous jobs",
+        "The <var>package</var> job is skipped, because two jobs cannot use <var>actions/checkout@v4</var> in the same workflow"
       ],
       "rightAnswer": 1
     },
@@ -47,21 +47,21 @@
       "type": "mc",
       "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPkEgdGVhbSBuZWVkcyBpdHMgQ0kgam9icyB0byByZWFjaCBhIHByaXZhdGUgZGF0YWJhc2UgaW5zaWRlIHRoZSBjb21wYW55IExBTiwgYW5kIHdhbnRzIGluc3RhbGxlZCBwYWNrYWdlcyB0byByZW1haW4gb24gZGlzayBiZXR3ZWVuIHJ1bnMuIFdoaWNoIGNob2ljZSBpcyB0aGUgbW9zdCBhcHByb3ByaWF0ZSwgYW5kIHdoeT88L3N0cm9uZz4=",
       "answers": [
-        "runs-on: ubuntu-latest, because GitHub-hosted runners keep their state between runs",
-        "runs-on: ubuntu-latest, because GitHub-hosted runners can access any private network by default",
-        "runs-on: self-hosted, because it runs on your own hardware, with persistent state and access to local resources",
-        "runs-on: self-hosted, because it provides a brand-new environment for every job, destroyed after use"
+        "<var>runs-on: ubuntu-latest</var>, because GitHub-hosted runners keep their state between runs",
+        "<var>runs-on: ubuntu-latest</var>, because GitHub-hosted runners can access any private network by default",
+        "<var>runs-on: self-hosted</var>, because it runs on your own hardware, with persistent state and access to local resources",
+        "<var>runs-on: self-hosted</var>, because it provides a brand-new environment for every job, destroyed after use"
       ],
       "rightAnswer": 2
     },
     {
       "partId": 0,
       "type": "mc",
-      "base64question": "PHN0cm9uZyBjbGFzcz0ic3Ryb25nIj5XaGljaCBzdGF0ZW1lbnQgYWJvdXQgQWN0aW9uIHZlcnNpb25pbmcgaXMgY29ycmVjdD88L3N0cm9uZz4=",
+      "base64question": "PHN0cm9uZyBjbGFzcz0icXVlc3Rpb24iPldoaWNoIHN0YXRlbWVudCBhYm91dCBBY3Rpb24gdmVyc2lvbmluZyBpcyBjb3JyZWN0Pzwvc3Ryb25nPg==",
       "answers": [
-        "@v4 always stays on the exact same code, while @v4.1.2 automatically receives the latest patches",
-        "@v4 automatically receives the latest v4.x patches while keeping a stable API, whereas @v4.1.2 is fully predictable but gets no automatic bug fixes",
-        "@v4 can automatically upgrade to v5 when it is released, so it is the least predictable option",
+        "<var>@v4</var> always stays on the exact same code, while <var>@v4.1.2</var> automatically receives the latest patches",
+        "<var>@v4</var> automatically receives the latest <var>v4.x</var> patches while keeping a stable API, whereas <var>@v4.1.2</var> is fully predictable but gets no automatic bug fixes",
+        "<var>@v4</var> can automatically upgrade to <var>v5</var> when it is released, so it is the least predictable option",
         "Pinning to a commit SHA is discouraged because it is less secure than a major version tag"
       ],
       "rightAnswer": 1
