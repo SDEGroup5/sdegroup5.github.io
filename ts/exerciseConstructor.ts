@@ -10,7 +10,7 @@ const knownFileMap: Map<string, string> = new Map<string, string>([
     ["gitCheatSheet.pdf", "Git_Commands.pdf"],
     ["presentation.pdf", "Presentation.pdf"],
     ["setup.pdf", "General_Setup.pdf"],
-    ["setup.pdf", "Setup_With_VM.pdf"]
+    ["setupVM.pdf", "Setup_With_VM.pdf"]
 ]);
 
 let isFilesListPresent: boolean = false;
