@@ -62,7 +62,8 @@
         "<var>@v4</var> always stays on the exact same code, while <var>@v4.1.2</var> automatically receives the latest patches",
         "<var>@v4</var> automatically receives the latest <var>v4.x</var> patches while keeping a stable API, whereas <var>@v4.1.2</var> is fully predictable but gets no automatic bug fixes",
         "<var>@v4</var> can automatically upgrade to <var>v5</var> when it is released, so it is the least predictable option",
-        "Pinning to a commit SHA is discouraged because it is less secure than a major version tag"
+        "The <var>actions/</var> prefix is mandatory, because only the official GitHub organization can publish an Action"
+
       ],
       "rightAnswer": 1
     },
